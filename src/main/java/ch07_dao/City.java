@@ -6,6 +6,7 @@ public class City {
 	private String countryCode;
 	private String district;
 	private int population;
+	
 	public City() { }
 	public City(int id, String name, String countryCode, String district, int population) {
 		this.id = id;

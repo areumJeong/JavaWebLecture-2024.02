@@ -1,27 +1,26 @@
 package ch07_dao;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet("/ch07/city/search")
-public class Ex01_Search extends HttpServlet {
+@WebServlet("/ch07/city/list")
+public class Ex03_Insert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+       
+	// 입력 폼 보여주기
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = (request.getParameter("id") == null) ? 2340 : Integer.parseInt(request.getParameter("id"));
-		
-		CityDao cDao = new CityDao();
-		City city = cDao.getCity(id);
-		System.out.println(city);
-		
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		out.print(city);
+		RequestDispatcher rd = request.getRequestDispatcher("/ch07/list.jsp");
+	}
+
+	// 사용자 입력 처리하기 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
 	}
 
 }
