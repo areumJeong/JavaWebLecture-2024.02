@@ -18,7 +18,7 @@ Jakarta EE 에서 JSTL을 사용하려면
 	</style>
 </head>
 <body style="margin: 50px;">
-	<h1>국내 도시 목록</h1>
+	<h1>국내 도시 리스트</h1>
 	<button onclick="location.href='/jw/ch07/kcity/insert'">추가</button>
 	<hr>
 	<table border="1">
