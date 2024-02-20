@@ -8,43 +8,30 @@ import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.annotation.WebServlet;
 
-/**
- * Servlet Filter implementation class EncodingFilter
- */
+@WebFilter("/ch10/*")
 public class EncodingFilter extends HttpFilter implements Filter {
-       
-    /**
-     * @see HttpFilter#HttpFilter()
-     */
+   
     public EncodingFilter() {
         super();
-        // TODO Auto-generated constructor stub
+        System.out.println("생성자");
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+		System.out.println("destroy()");
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
+	// 필요한 작업을 코딩하는 부분
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
-
-		// pass the request along the filter chain
+//		request.setCharacterEncoding("utf-8");
+		System.out.println("doFilter()");
 		chain.doFilter(request, response);
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		System.out.println("init()");
 	}
 
 }
