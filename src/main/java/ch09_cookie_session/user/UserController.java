@@ -124,7 +124,7 @@ public class UserController extends HttpServlet {
 				user = new User(uid, hashedPwd, uname, email);
 				uSvc.updateUser(user);
 				response.sendRedirect("/jw/ch09/user/list?page=1");
-			}
+			} 
 			break;
 			
 		case "delete":
