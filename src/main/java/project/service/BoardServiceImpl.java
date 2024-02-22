@@ -24,14 +24,12 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int getBoardCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return bDao.getBoardCount();
 	}
 
 	@Override
 	public void insertBoard(Board board) {
-		// TODO Auto-generated method stub
-		
+		bDao.insertBoard(board);
 	}
 
 	@Override

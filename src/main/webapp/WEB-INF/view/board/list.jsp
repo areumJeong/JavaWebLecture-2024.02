@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,9 @@
 			<%@ include file="../common/_aside.jspf" %>
 			
 			<div class="col-9">
+			<table class="table table-sm table-borderless">
+			
+			</table>
 				<h3><strong class="me-5">게시글 목록</strong>
 					<span style="font-size:16px"><a href="/jw/bbs/board/insert"><i class="fa-solid fa-pen-to-square"></i> 글 쓰기</a></span>
 				</h3>
@@ -41,23 +45,22 @@
 							</c:if>
 						</td>
 						<td>${board.uname}</td>
-						<td>${board.modTime}</td>
+						<td>${fn:substring(fn:replace(board.modTime,"T"," "), 2, 16)}</td>
 						<td>${board.viewCount}</td>
 					</tr>
 					</c:forEach>
 				</table>
 				<%-- pagination --%>
-<%--
+				
 				<ul class="pagination justify-content-center mt-4">
 					<li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-less-than"></i></a></li>
 				<c:forEach var="page" items="${pageList}">
-					<li class="page-item ${currentUserPage eq page ? 'active' : ''}">
-						<a class="page-link" href="/jw/bbs/user/list?page=${page}">${page}</a>
+					<li class="page-item ${currentBoardPage eq page ? 'active' : ''}">
+						<a class="page-link" href="/jw/bbs/board/list?p=${page}">${page}</a>
 					</li>
 				</c:forEach>
 					<li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-greater-than"></i></a></li>
 				</ul>	
---%>					
 					
 			</div>
 		</div>
