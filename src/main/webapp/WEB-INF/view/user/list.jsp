@@ -59,13 +59,15 @@
 							</c:forEach>
 						</table>
 						<%-- pagination --%>
-						<ul class="pagination justify-content-center mt-3">
+						<ul class="pagination justify-content-center mt-4">
 							<li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-less-than"></i></a></li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<c:forEach var="page" items="${pageList}">
+							<li class="page-item ${currentUserPage eq page ? 'active' : ''}">
+								<a class="page-link" href="/jw/bbs/user/list?page=${page}">${page}</a>
+							</li>
+						</c:forEach>
 							<li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-greater-than"></i></a></li>
-						</ul>
+						</ul>						
 					</div>
 					<div class="col-1"></div>
 				</div>
