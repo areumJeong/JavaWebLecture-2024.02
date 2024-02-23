@@ -1,6 +1,6 @@
 package project.dao;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -11,8 +11,6 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-
 
 import project.entity.Board;
 
@@ -107,7 +105,16 @@ public class BoardDao {
 	
 	public void deleteBoard(int bid) {
 		Connection conn = getConnection();
-		
+		String sql = "update board set isDeleted=1 where bid=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			
+			pstmt.executeUpdate();
+			pstmt.close(); conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// field 값은 view 또는 reply
@@ -134,14 +141,12 @@ public class BoardDao {
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				count = rs.getInt(1);
-				
-			}	
-			
+			}
 			rs.close(); stmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return count;
 	}
-
+	
 }
