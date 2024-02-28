@@ -8,15 +8,14 @@ public class Product {
 	private String description;
 	private String pimage;
 	
+	public Product() { }
 	public Product(String category, String pname, int price, String description, String pimage) {
-		super();
 		this.category = category;
 		this.pname = pname;
 		this.price = price;
 		this.description = description;
 		this.pimage = pimage;
 	}
-	public Product() { }
 	public Product(int pid, String category, String pname, int price, String description, String pimage) {
 		this.pid = pid;
 		this.category = category;
@@ -25,11 +24,13 @@ public class Product {
 		this.description = description;
 		this.pimage = pimage;
 	}
+	
 	@Override
 	public String toString() {
 		return "Product [pid=" + pid + ", category=" + category + ", pname=" + pname + ", price=" + price
 				+ ", description=" + description + ", pimage=" + pimage + "]";
 	}
+	
 	public int getPid() {
 		return pid;
 	}
